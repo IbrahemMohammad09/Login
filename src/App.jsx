@@ -1,4 +1,4 @@
-import Log from './Components/Log-in/Log-in'
+import Delete from './Components/Delete/Delete'
 import './App.css'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <Log/>
+      <Delete/>
     </>
   )
 }
