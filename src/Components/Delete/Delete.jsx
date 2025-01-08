@@ -1,6 +1,7 @@
 import { IoMdPerson } from "react-icons/io";
 import  { useState } from 'react';
 import { FaCheckDouble , FaLock} from "react-icons/fa";
+
 const Confirm = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
@@ -16,6 +17,7 @@ const Confirm = ({ isOpen, onClose, onConfirm }) => {
     </div>
   );
 };
+
 const SuccessMessage = ({ isVisible }) => {
     if (!isVisible) return null;
     return (
@@ -25,7 +27,7 @@ const SuccessMessage = ({ isVisible }) => {
           </div>
         </div>
       );
-    };
+};
     
 export default function Delete(){
     const [isDivOpen, setIsDivOpen] = useState(false);
@@ -49,32 +51,27 @@ export default function Delete(){
       }, 2000);
     };
     
-return<>
- <div className="flex justify-center mt-12 ">
+  return (
+    <div>
+      <div className="flex justify-center mt-12 ">
         <div className="border border-blue shadow-lg  p-11">
           <form onSubmit={handleSubmit} >
             <div className="mb-4 relative">
-  <IoMdPerson className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500" /> 
-  <input type="text" className="mt-1 block pl-10 p-3 h-16 border-0 border-b-2 border-blue-500 focus:outline-none focus:border-b-2 focus:border-blue-600" 
-  placeholder="UserName"
-  />
-</div>
-   <div className="mb-4 relative">
-  <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500" /> 
-  <input type="password" className="mt-1 block pl-10 p-3 h-16 border-0 border-b-2 border-blue-500 focus:outline-none focus:border-b-2 focus:border-blue-600" 
-    placeholder="Password" 
-  />
-</div>
-           <button type="submit" className= "bg-blue-500 text-white w-full py-4 px-6  mt-7 font-normal   hover:bg-gray-500">
+              <IoMdPerson className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500" /> 
+              <input type="text" className="mt-1 block pl-10 p-3 h-16 border-0 border-b-2 border-blue-500 focus:outline-none focus:border-b-2 focus:border-blue-600" placeholder="UserName"/>
+            </div>
+            <div className="mb-4 relative">
+              <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500" /> 
+              <input type="password" className="mt-1 block pl-10 p-3 h-16 border-0 border-b-2 border-blue-500 focus:outline-none focus:border-b-2 focus:border-blue-600" placeholder="Password"/>
+            </div>
+            <button type="submit" className= "bg-blue-500 text-white w-full py-4 px-6  mt-7 font-normal   hover:bg-gray-500">
               Delete account
             </button>
           </form>
-        
-         
         </div>
       </div>
-
-      
       <Confirm isOpen={isDivOpen} onClose={handleClose}  onConfirm={handleConfirm}/> <SuccessMessage isVisible={isSuccessVisible} />
-</>
+    </div>
+
+ );
 }
